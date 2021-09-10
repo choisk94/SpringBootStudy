@@ -1,0 +1,47 @@
+# yml은 모든 스프링에 대한 설정을 할수가 있다 .
+# web.xml rootContext.xml, servletContext.xml 이런것에 설정을 나눠서 했다면 ! 여기서는 !! 싸그리 한꺼번에할수가있다.
+# Properties를 쓰지 않는 이유는 얘는 설정을 할때 자동완성이 되는데 .을 기준으로 구분을하는데 
+# ex)  spring.datasource.data-password=1234 이런식으로해야하는데 이방식보다는 yml이 좋다. (스프링 공식사이트에서는 프로펄티즈를 권당하지만 ! )
+# yml은 :을 가지고 들여쓰기를 하고 2칸씩 띄워준다!!! 즉 예를 들면 
+# yml은 들여쓰기가 가능하다보니 
+#spring:
+#  datasource:
+#    password: 비번
+#    username: 계정
+# 이런식으로 중복되는 코드를 줄일수가 있다! 또한 2칸전으로 가면 spring 하위에 datasource말고 다른 속성도 넣을수가 있다.
+
+# Server Setting 
+server:
+  port: 8888
+  servlet:
+    context-path: /SpringBootStudy
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+# DataSource Setting    
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@127.0.0.1:1521:xe
+    username: SpringBootStudy
+    password: SpringBootStudy
+    
+# JPA Setting    
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      use-new-id-generator-mappings: false
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: false      
+      
+      
