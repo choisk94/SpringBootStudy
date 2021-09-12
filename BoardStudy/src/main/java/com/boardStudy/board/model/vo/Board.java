@@ -36,7 +36,7 @@ public class Board {
 	
 	@ManyToOne
 	@JoinColumn(name="MEMBER_ID", nullable=false, updatable=false)	// N:1관계 매핑, 외래키 관리를 위해 추가한 어노테이션.
-	private Member member;
+	private Member member;											// nullable = false여서 내부조인으로 처리됨.
 	
 	public void setMember(Member member) {
 		this.member = member;
