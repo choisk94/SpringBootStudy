@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.boardStudy.board.model.service.BoardService;
@@ -30,10 +32,27 @@ public class BoardController {
 	/** @author seokyung choi
 	 * 게시물 상세 조회
 	 */
-	@RequestMapping("getBoard")
+	@RequestMapping("/getBoard")
 	public String getBard(Model model, Board board) {
 		model.addAttribute("board", bService.getBoard(board));
 		return "board/getBoard";
+	}
+	
+	/** @author seokyung choi
+	 * 게시물 등록 화면
+	 */
+	@GetMapping("/insertBoard")
+	public String insertBoardView() {
+		return "board/insertBoard";
+	}
+	
+	/** @author seokyung choi
+	 * 게시물 등록 기능
+	 */
+	@PostMapping("/insertBoard")
+	public String insertBoard(Board board) {
+		bService.insertBoard(board);
+		return "redirect:getBoardList";
 	}
 
 	
