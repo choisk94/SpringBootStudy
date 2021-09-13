@@ -27,6 +27,12 @@ spring:
     url: jdbc:oracle:thin:@127.0.0.1:1521:xe
     username: SpringBootStudy
     password: SpringBootStudy
+  # WEbApplication Type Setting
+  main:
+    web-application-type: servlet  # 'servlet'으로 설정 시 BoardStudyApplication을 중지하고 다시 실행하면 내장톰캣이 구동되면서 웹 애플리케이션으로 실행됨  
+  # Thymeleaf Cache Setting
+  thymeleaf:
+    cache: false  
     
 # JPA Setting    
   jpa:
@@ -44,4 +50,5 @@ spring:
     serialization:
       fail-on-empty-beans: false      
       
+
       
