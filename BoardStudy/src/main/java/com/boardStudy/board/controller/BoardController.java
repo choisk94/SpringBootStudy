@@ -54,6 +54,24 @@ public class BoardController {
 		bService.insertBoard(board);
 		return "redirect:getBoardList";
 	}
+	
+	/** @author seokyung choi
+	 * 게시물 수정
+	 */
+	@PostMapping("/updateBoard")
+	public String updateBoard(Board board) {
+		bService.updateBoard(board);
+		return "forward:getBoardList";
+	}
+	
+	/** @author seokyung choi
+	 * 게시물 삭제
+	 */
+	@GetMapping("/deleteBoard")
+	public String deleteBoard(Board board) {
+		bService.deleteBoard(board);
+		return "forward:getBoardList";
+	}
 
 	
 	
