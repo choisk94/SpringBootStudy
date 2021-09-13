@@ -17,12 +17,26 @@ public class BoardController {
 	private BoardService bService;		// BoardService 컴포넌트를 의존성 주입함
 	
 	// getBoardList.html페이지에서 검색 결과를 사용할 수 있도록 Model에 검색한 글 목록을 저장함
+	/** @author seokyung choi
+	 * 게시물 목록 조회
+	 */
 	@RequestMapping("/getBoardList")
 	public String getBoardList(Model model, Board board) {
 		Page<Board> boardList = bService.getBoardList(board);
 		model.addAttribute("boardList", boardList);
 		return "board/getBoardList";
-		
 	}
 
+	/** @author seokyung choi
+	 * 게시물 상세 조회
+	 */
+	@RequestMapping("getBoard")
+	public String getBard(Model model, Board board) {
+		model.addAttribute("board", bService.getBoard(board));
+		return "board/getBoard";
+	}
+
+	
+	
+	
 }
