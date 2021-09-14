@@ -106,7 +106,22 @@
           <artifactId>spring-jdbc</artifactId>
           <version>5.3.9</version>
       </dependency>
-		
+
+	  <!-- 스프링 시큐리티 스타터 추가(시큐리티 적용 직전에 추가함) -->
+      <dependency>
+      	<groupId>org.springframework.boot</groupId>
+      	<artifactId>spring-boot-starter-security</artifactId>
+      </dependency>
+      <dependency>
+      	<groupId>org.thymeleaf.extras</groupId>
+      	<artifactId>thymeleaf-extras-springsecurity5</artifactId>
+      </dependency>
+      <dependency>
+      	<groupId>org.springframework.security</groupId>
+      	<artifactId>spring-security-test</artifactId>
+      	<scope>test</scope>
+      </dependency>
+      
 	</dependencies>
 
 	<build>
